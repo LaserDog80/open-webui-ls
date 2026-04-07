@@ -1,0 +1,37 @@
+/* LLM Philosopher Chat — theme overrides.
+ * Start minimal; extend as needed. Apply via Admin Panel > Settings > Interface > Custom CSS.
+ */
+
+:root {
+  --brand-bg: #1f2937;
+  --brand-accent: #fbbf24;
+  --brand-text: #f3f4f6;
+}
+
+/* Accent colour for primary buttons/links */
+.bg-emerald-600,
+.bg-blue-600,
+button[type="submit"] {
+  background-color: var(--brand-accent) !important;
+  color: #111827 !important;
+}
+
+/* Sidebar tint */
+aside,
+nav[aria-label="sidebar"] {
+  background-color: var(--brand-bg) !important;
+}
+
+/* Hide any residual "Open WebUI" literal strings that env var doesn't reach.
+ * Uncomment / extend once you identify specific selectors in devtools. */
+/*
+[data-openwebui-brand],
+.openwebui-footer { display: none !important; }
+*/
+
+/* Optional: hide features you don't want colleagues to see.
+ * Uncomment the ones you want removed. */
+/*
+button[aria-label="Generate Image"] { display: none !important; }
+button[aria-label="Upload Document"] { display: none !important; }
+*/

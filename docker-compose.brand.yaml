@@ -1,0 +1,17 @@
+services:
+  llm-philosopher-chat:
+    build:
+      context: .
+      dockerfile: Dockerfile.brand
+    image: llm-philosopher-chat:latest
+    container_name: llm-philosopher-chat
+    ports:
+      - "3000:8080"
+    env_file:
+      - .env
+    volumes:
+      - llm-philosopher-data:/app/backend/data
+    restart: unless-stopped
+
+volumes:
+  llm-philosopher-data:
