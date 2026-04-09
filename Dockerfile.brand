@@ -1,0 +1,17 @@
+# LLM Philosopher Chat — branding layer on top of upstream Open WebUI image.
+# Build:   docker build -f Dockerfile.brand -t llm-philosopher-chat .
+# Run via: docker compose -f docker-compose.brand.yaml up -d --build
+FROM ghcr.io/open-webui/open-webui:main
+
+# Replace favicons (placeholders — swap for real assets in branding/).
+COPY branding/favicon.svg /app/build/static/favicon.svg
+COPY branding/favicon.png /app/build/static/favicon.png
+COPY branding/favicon.ico /app/build/static/favicon.ico
+
+# Also overwrite the static/ sources that may be served directly.
+COPY branding/favicon.svg /app/backend/open_webui/static/favicon.svg
+COPY branding/favicon.png /app/backend/open_webui/static/favicon.png
+
+# Inject custom CSS (loaded via Admin Panel > Settings > Interface > Custom CSS,
+# or referenced directly from index.html in a follow-up if needed).
+COPY branding/custom.css /app/build/static/custom.css
